@@ -8,4 +8,8 @@ fn main() {
     some_text.push_str(some_more_text);
 
     println!("{some_text}");
+
+    let a_new_text_variable = some_text; // some_text is no longer valid now (it "moves" to a_new_text_variable)
+
+    println!("{a_new_text_variable}");
 }
