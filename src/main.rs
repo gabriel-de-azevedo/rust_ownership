@@ -1,15 +1,11 @@
 fn main() {
-    let some_text = "some_text";
-    let some_more_text = ", world";
+    let s1 = String::from("Hello");
+    let s2 = s1.clone();
 
-    println!("{some_text}");
+    println!("s1 = {s1}, s2 = {s2}");
 
-    let mut some_text = String::from(some_text); // A string literal cannot grow in size, so we need to cast our variable to a String
-    some_text.push_str(some_more_text);
+    let s1 = "Hi";
+    let s2 = s1;
 
-    println!("{some_text}");
-
-    let a_new_text_variable = some_text; // some_text is no longer valid now (it "moves" to a_new_text_variable)
-
-    println!("{a_new_text_variable}");
+    println!("s1 = {s1}, s2 = {s2}");
 }
