@@ -1,28 +1,21 @@
-fn first_word(s: &String) -> usize {
+fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            return i;
+            return &s[0..i];
         }
     }
 
-    s.len()
+    &s[..]
 }
 
 fn main() {
-    let mut s = String::from("hello world");
+    let s = String::from("hello world");
+    // let mut s = String::from("hello world");
 
-    let word = first_word(&s); // word will get the value 5
+    let word = first_word(&s);
+    // s.clear();
 
-    s.clear(); // this empties the String, making it equal to ""
-
-    println!("{word}")
-    // word still has the value 5 here, but s no longer has any content that we
-    // could meaningfully use with the value 5, so word is now totally invalid!
-}
-
-// I'm really happy that this is something addressed in the Rust Book
-// It means that me and whoever wrote the book think about code in a similar way
-// This is the first thing I thought of checking
-// It's also very refreshing to work with a language that addresses these things all the way
+    println!("the first word is: {word}");
+} // Uncommenting the two lines throws the most beautiful error I've ever seen
