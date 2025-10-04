@@ -1,21 +1,6 @@
-fn first_word(s: &String) -> &str {
-    let bytes = s.as_bytes();
-
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return &s[0..i];
-        }
-    }
-
-    &s[..]
-}
-
 fn main() {
-    let s = String::from("hello world");
-    // let mut s = String::from("hello world");
-
-    let word = first_word(&s);
-    // s.clear();
-
-    println!("the first word is: {word}");
-} // Uncommenting the two lines throws the most beautiful error I've ever seen
+    let s = "Hello, world!";
+    println!("{s}")
+}
+// The type of s here is &str: it’s a slice pointing to that specific point of the binary.
+// This is also why string literals are immutable; &str is an immutable reference.
